@@ -91,7 +91,7 @@ def edit_entry(request, entry_id):
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
 
-def check_topic_owner(request):
+def check_topic_owner(request, topic):
     # Make sure the topic belongs to the current user.
     if topic.owner != request.user:
         raise Http404
